@@ -1,0 +1,13 @@
+{
+  "googleApiKey": "<your_google_api_key>",
+  "locationServer": "<api_url>/location",
+  "initialZoom": 8,
+  "maxZoom": 10,
+  "streetViewControl": false,
+  "lineColor": "#6489E5",
+  "lineOpacity": 1,
+  "lineWeight": 6,
+  "trailerIconUrl": "./camper-van.png",
+  "trailerIconWidth": 48,
+  "trailerIconHeight": 48
+}

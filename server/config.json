@@ -1,0 +1,11 @@
+{
+  "geoRecieverPort": 3200,
+  "geoApiPort": 3000,
+  "mongodb": {
+    "user": "",
+    "pass": "",
+    "cluster": "",
+    "db": ""
+  },
+  "comparePrecision": 4
+}
