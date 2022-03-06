@@ -12,7 +12,7 @@ export const App = (props) => {
       fetch(config.locationServer)
         .then((response) => response.json())
         .then((data) => {
-          setLocations(data);
+          setLocations(data.sort((a, b) => a.ordinal - b.ordinal));
         });
     };
 
