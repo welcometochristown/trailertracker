@@ -48,6 +48,7 @@ Setup is pretty easy, you will need to clone a copy of the project to your hosti
 ```
 
 googleApiKey - this is the api key provided by google api services
+
 locationServer - this is the full url of the api server geolocation end point (in the server project)
 
 ## server
