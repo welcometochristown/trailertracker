@@ -12,22 +12,25 @@ export const App = (props) => {
       fetch(config.locationServer)
         .then((response) => response.json())
         .then((data) => {
-          setLocations(data.sort((a, b) => a.ordinal - b.ordinal));
+          data.sort((a, b) => a.ordinal - b.ordinal);
+          setLocations(
+            data.map((location) => ({
+              lat: parseFloat(location.latitude),
+              lng: parseFloat(location.longitude),
+            }))
+          );
         });
     };
 
     loadLocations();
   }, []);
 
-  const map = locations ? (
+  var map = locations ? (
     <Map
       google={google}
       zoom={config.initialZoom}
       maxZoom={config.maxZoom}
-      initialCenter={{
-        lat: locations[locations.length - 1].latitude,
-        lng: locations[locations.length - 1].longitude,
-      }}
+      initialCenter={locations[locations.length - 1]}
       streetViewControl={config.streetViewControl}
     >
       <Marker
@@ -42,10 +45,7 @@ export const App = (props) => {
       <Polyline
         geodesic={true}
         options={{
-          path: locations.map((location) => ({
-            lat: location.latitude,
-            lng: location.longitude,
-          })),
+          path: locations,
           strokeColor: config.lineColor,
           strokeOpacity: config.lineOpacity,
           strokeWeight: config.lineWeight,
