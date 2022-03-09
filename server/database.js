@@ -32,7 +32,7 @@ const exec = async (func) => {
 };
 
 const insert = (geo) => {
-  exec(() => {
+  exec(async () => {
     const toRegex = (geoValue) =>
       new RegExp(
         `^${getFixedUnrounded(geoValue, config.comparePrecision).replace(
@@ -81,7 +81,7 @@ const insert = (geo) => {
 };
 
 const query = (res) => {
-  exec(() => {
+  exec(async () => {
     const locations = await Location.find({}).sort({ ordinal: 1 });
     res.send(locations);
   });
