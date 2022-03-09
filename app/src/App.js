@@ -12,11 +12,10 @@ export const App = (props) => {
       fetch(config.locationServer)
         .then((response) => response.json())
         .then((data) => {
-          data.sort((a, b) => a.ordinal - b.ordinal);
           setLocations(
             data.map((location) => ({
-              lat: parseFloat(location.latitude),
-              lng: parseFloat(location.longitude),
+              lat: location.latitude,
+              lng: location.longitude,
             }))
           );
         });
@@ -25,7 +24,7 @@ export const App = (props) => {
     loadLocations();
   }, []);
 
-  var map = locations ? (
+  const map = locations ? (
     <Map
       google={google}
       zoom={config.initialZoom}
